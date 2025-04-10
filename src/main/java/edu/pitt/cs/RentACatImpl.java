@@ -18,7 +18,12 @@ public class RentACatImpl implements RentACat {
 	 */
 
 	public boolean returnCat(int id) {
-		// TODO: Fill in
+        Cat cat = getCat(id);
+        
+        if (cat != null && cat.getRented()) {
+            cat.returnCat();
+            return true;
+        }
 		return false;
 	}
 
@@ -33,7 +38,11 @@ public class RentACatImpl implements RentACat {
 	 */
 
 	public boolean rentCat(int id) {
-		// TODO: Fill in
+		Cat cat = getCat(id);
+		if (cat != null && !cat.getRented()) {
+            cat.rentCat();
+            return true;
+        }
 		return false;
 	}
 
@@ -47,8 +56,14 @@ public class RentACatImpl implements RentACat {
 	 */
 
 	public boolean renameCat(int id, String name) {
-		// TODO: Fill in
-		return false;
+        Cat cat = getCat(id);
+        
+        if (cat != null) {
+            cat.renameCat(name);
+            return true;
+        }
+        
+        return false;
 	}
 
 	/**
@@ -62,8 +77,16 @@ public class RentACatImpl implements RentACat {
 	 */
 
 	public String listCats() {
-		// TODO: Fill in
-		return "WRITE CODE FOR THIS";
+        StringBuilder catList = new StringBuilder();
+        
+        for (Cat cat : cats) {
+            if (!cat.getRented()) {
+                // Append cat toString() and a line feed
+                catList.append(cat.toString()).append("\n");
+            }
+        }
+        
+        return catList.toString();
 	}
 
 	/**
@@ -76,23 +99,16 @@ public class RentACatImpl implements RentACat {
 
 	private Cat getCat(int id) {
 
-		// null check
 		if (cats == null) {
 			return null;
 		}
 
 		// Loop through every cat in the cat list
 		for (Cat c : cats) {
-			// If we found a cat whose id matches the id
-			// of the argument, then we have a match and
-			// can thus return a reference to that cat
 			if (c.getId() == id) {
 				return c;
 			}
 		}
-		// If we get all the way through the list and did
-		// not find a cat whose ID matches the passed-in
-		// ID, then the cat is not in the list
 		System.out.println("Invalid cat ID.");
 		return null;
 
