@@ -54,7 +54,10 @@ public class CatUnitTest {
 	@Test
 	public void testGetId() {
 		// TODO: Fill in
-		assertEquals(1, c.getId());
+		//when(c.getId()).thenReturn(1);
+
+		int ret =c.getId();
+		assertEquals(1,ret);
 	}
 
 	/**
@@ -69,7 +72,10 @@ public class CatUnitTest {
 	@Test
 	public void testGetName() {
 		// TODO: Fill in
-		assertEquals("Jennyanydots", c.getName());
+		//when(c.getName()).thenReturn("Jennyanydots");
+
+		String name = c.getName();
+		assertEquals("Jennyanydots", name);
 	}
 
 	/**
@@ -84,7 +90,10 @@ public class CatUnitTest {
 	@Test
 	public void testGetRented() {
 		// TODO: Fill in
-		assertFalse(c.getRented());
+	
+		//when(c.getRented()).thenReturn(false);
+		boolean rent = c.getRented();
+		assertFalse(rent);
 	}
 
 	/**
@@ -99,7 +108,9 @@ public class CatUnitTest {
 	@Test
 	public void testToString() {
 		// TODO: Fill in
-		assertEquals("ID 1. Jennyanydots", c.toString());
+		//when(c.toString()).thenReturn("ID 1. Jennyanydots");
+		String ret = c.toString();
+		assertEquals("ID 1. Jennyanydots", ret);
 	}
 
 	/**
@@ -115,8 +126,11 @@ public class CatUnitTest {
 	@Test
 	public void testRentCat() {
 		// TODO: Fill in
+		//doNothing().when(c).rentCat();
+		//when(c.getRented()).thenReturn(true);
 		c.rentCat();
-        assertTrue(c.getRented());
+		boolean ret = c.getRented();
+		assertTrue(ret);
 	}
 
 	/**
@@ -133,9 +147,13 @@ public class CatUnitTest {
 	@Test
 	public void testReturnCat() {
 		// TODO: Fill in
+		//doNothing().when(c).rentCat();
+		//doNothing().when(c).returnCat();
+		//when(c.getRented()).thenReturn(true).thenReturn(false);
 		c.rentCat();
 		c.returnCat();
-		assertFalse(c.getRented());
+		boolean ret = c.getRented();
+		assertFalse(ret);
 	}
 
 	/**
@@ -151,9 +169,14 @@ public class CatUnitTest {
 	@Test
 	public void testRenameCat() {
 		// TODO: Fill in
+		
+		//doNothing().when(c).renameCat("Garfield");
+    	//when(c.getName()).thenReturn("Garfield");
+    	//when(c.toString()).thenReturn("ID 1. Garfield");
+
 		c.renameCat("Garfield");
-        assertEquals("Garfield", c.getName());
-        assertEquals("ID 1. Garfield", c.toString());
+		assertEquals("Garfield", c.getName());
+		assertEquals( "ID 1. Garfield", c.toString());
 	}
 
 }

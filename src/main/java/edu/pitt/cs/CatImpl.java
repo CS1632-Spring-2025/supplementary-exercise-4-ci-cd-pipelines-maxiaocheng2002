@@ -1,45 +1,61 @@
 package edu.pitt.cs;
 
 public class CatImpl implements Cat {
-    private int id;
-    private String name;
-    private boolean rented;
 
-    public CatImpl(int id, String name) {
-        this.id = id;
-        this.name = name;
-        this.rented = false;
-    }
+	// TODO: Fill in with member variables
+	int initializedId = 0;
+	String initializedName = null;
+	boolean isRented = false;
 
-    public void rentCat() {
-        if (!this.rented) {
-            this.rented = true;
-        }
-    }
+	public CatImpl(int id, String name) {
+		// TODO: Fill in
+		initializedId = id;
+		initializedName = name;
 
-    public void returnCat() {
-        if (this.rented) {
-            this.rented = false;
-        }
-    }
+	}
 
-    public void renameCat(String name) {
-        this.name = name;
-    }
+	public void rentCat() {
+		// TODO: Fill in
+	
+		isRented = true;
 
-    public String getName() {
-        return this.name;
-    }
 
-    public int getId() {
-        return this.id;
-    }
+	}
 
-    public boolean getRented() {
-        return this.rented;
-    }
+	public void returnCat() {
+		// TODO: Fill in
 
-    public String toString() {
-        return "ID " + this.id + ". " + this.name;
-    }
+		isRented = false;
+	}
+
+	public void renameCat(String name) {
+		// TODO: Fill in
+		
+		initializedName = name;
+	}
+
+	public String getName() {
+		// TODO: Fill in
+		
+		return initializedName;
+	}
+
+	public int getId() {
+		// TODO: Fill in
+	
+		return initializedId;
+	}
+
+	public boolean getRented() {
+		// TODO: Fill in
+		
+		return isRented;
+	}
+
+	public String toString() {
+		// TODO: Fill in
+		
+		return "ID " + initializedId + ". " + initializedName;
+	}
+
 }
