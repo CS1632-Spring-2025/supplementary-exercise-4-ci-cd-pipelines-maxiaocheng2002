@@ -17,7 +17,11 @@
 # CS 1632 - Software Quality Assurance
 Fall Semester 2024 - Supplementary Exercise 4
 
+<<<<<<< HEAD
 * DUE: November 22 (Friday), 2024 11:59 PM
+=======
+* DUE: April 15 (Tuesday), 2025 before start of class
+>>>>>>> parent of 4478c87 (Update README.md)
 
 ## Description
 
