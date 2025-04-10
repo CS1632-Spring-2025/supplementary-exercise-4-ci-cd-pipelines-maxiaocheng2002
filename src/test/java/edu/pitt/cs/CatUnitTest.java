@@ -32,6 +32,7 @@ public class CatUnitTest {
 		// Passing InstanceType.MOCK as the first parameter will create a mock cat using Mockito.
 		// Which type is the correct choice for this unit test?  I'll leave it up to you.  The answer is in the Unit Testing Part 2 lecture. :)
 		// TODO: Fill in
+		c = Cat.createInstance(InstanceType.IMPL, 1, "Jennyanydots");
 	}
 
 	@After
@@ -53,6 +54,10 @@ public class CatUnitTest {
 	@Test
 	public void testGetId() {
 		// TODO: Fill in
+		//when(c.getId()).thenReturn(1);
+
+		int ret =c.getId();
+		assertEquals(1,ret);
 	}
 
 	/**
@@ -67,6 +72,10 @@ public class CatUnitTest {
 	@Test
 	public void testGetName() {
 		// TODO: Fill in
+		//when(c.getName()).thenReturn("Jennyanydots");
+
+		String name = c.getName();
+		assertEquals("Jennyanydots", name);
 	}
 
 	/**
@@ -81,6 +90,10 @@ public class CatUnitTest {
 	@Test
 	public void testGetRented() {
 		// TODO: Fill in
+	
+		//when(c.getRented()).thenReturn(false);
+		boolean rent = c.getRented();
+		assertFalse(rent);
 	}
 
 	/**
@@ -95,6 +108,9 @@ public class CatUnitTest {
 	@Test
 	public void testToString() {
 		// TODO: Fill in
+		//when(c.toString()).thenReturn("ID 1. Jennyanydots");
+		String ret = c.toString();
+		assertEquals("ID 1. Jennyanydots", ret);
 	}
 
 	/**
@@ -110,6 +126,11 @@ public class CatUnitTest {
 	@Test
 	public void testRentCat() {
 		// TODO: Fill in
+		//doNothing().when(c).rentCat();
+		//when(c.getRented()).thenReturn(true);
+		c.rentCat();
+		boolean ret = c.getRented();
+		assertTrue(ret);
 	}
 
 	/**
@@ -126,6 +147,13 @@ public class CatUnitTest {
 	@Test
 	public void testReturnCat() {
 		// TODO: Fill in
+		//doNothing().when(c).rentCat();
+		//doNothing().when(c).returnCat();
+		//when(c.getRented()).thenReturn(true).thenReturn(false);
+		c.rentCat();
+		c.returnCat();
+		boolean ret = c.getRented();
+		assertFalse(ret);
 	}
 
 	/**
@@ -141,6 +169,14 @@ public class CatUnitTest {
 	@Test
 	public void testRenameCat() {
 		// TODO: Fill in
+		
+		//doNothing().when(c).renameCat("Garfield");
+    	//when(c.getName()).thenReturn("Garfield");
+    	//when(c.toString()).thenReturn("ID 1. Garfield");
+
+		c.renameCat("Garfield");
+		assertEquals("Garfield", c.getName());
+		assertEquals( "ID 1. Garfield", c.toString());
 	}
 
 }
