@@ -15,13 +15,9 @@
 - [Submission](#submission)
 
 # CS 1632 - Software Quality Assurance
-Fall Semester 2024 - Supplementary Exercise 4
+Spring Semester 2025 - Supplementary Exercise 4
 
-<<<<<<< HEAD
-* DUE: November 22 (Friday), 2024 11:59 PM
-=======
-* DUE: April 15 (Tuesday), 2025 before start of class
->>>>>>> parent of 4478c87 (Update README.md)
+* DUE: April 11 (Friday), 2025 11:59 PM
 
 ## Description
 
@@ -246,7 +242,7 @@ jobs:
 
     # https://github.com/marketplace/actions/upload-a-build-artifact
     - name: Upload jacoco results as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Jacoco coverage results
         path: target/site/jacoco
@@ -670,14 +666,14 @@ the pom.xml file and add the below text after the \<scm\>...\</scm\> element:
     <repository>
       <id>github</id>
       <name>GitHub Apache Maven Packages</name>
-      <url>https://maven.pkg.github.com/CS1632-Fall2024/supplementary-exercise-4-ci-cd-pipelines-wonsunahn</url>
+      <url>https://maven.pkg.github.com/CS1632-Spring-2025/supplementary-exercise-4-ci-cd-pipelines-wonsunahn</url>
     </repository>
   </distributionManagement>
 ```
 
 Replace the repository name within the \<url\>...\</url\> element with your own
 repository name.  Please make sure you leave the
-https://maven.pkg.github.com/CS1632-Fall2024/ part as-is and only change the
+https://maven.pkg.github.com/CS1632-Spring-2025/ part as-is and only change the
 repository name, as https://maven.pkg.github.com/ is the base URL for the
 BitHub Maven package registry.
 
@@ -763,7 +759,7 @@ Under the above folder add the settings.xml file with the following content:
         </repository>
         <repository>
           <id>github</id>
-          <url>https://maven.pkg.github.com/CS1632-Fall2024/*</url>
+          <url>https://maven.pkg.github.com/CS1632-Spring-2025/*</url>
           <snapshots>
             <enabled>true</enabled>
           </snapshots>
@@ -819,7 +815,7 @@ Once you are logged in, click on the "My Projects" tab.  And then click on
 <img alt="Analyze new project" src=img/sonarcloud_1.png>
 
 Then search for your GitHub repository by first selecting the
-"CS1632-Fall2024" organization from the Organization dropdown bar, and then
+"CS1632-Spring-2025" organization from the Organization dropdown bar, and then
 typing your GitHub ID in the search box as shown below.
 
 <img alt="Search for your GitHub project" src=img/sonarcloud_search.png>
