@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # This is a basic workflow that is manually triggered
 
 name: Manual workflow
@@ -33,27 +34,35 @@ jobs:
 =======
 >>>>>>> parent of ef63632 (Rename main.yml to maven-ci.yml)
 name: Maven CI
+=======
+# This is a basic workflow that is manually triggered
+>>>>>>> parent of 99853f1 (Update main.yml)
 
-# Triggers manually or on push or pull request on the main branch
-# (in other words, on a code integration event.)
+name: Manual workflow
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI or API.
 on:
   workflow_dispatch:
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    # Inputs the workflow accepts.
+    inputs:
+      name:
+        # Friendly description to be shown in the UI instead of 'name'
+        description: 'Person to greet'
+        # Default value if no value is explicitly provided
+        default: 'World'
+        # Input has to be provided for the workflow to run
+        required: true
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  
-  # Runs the Maven test phase on the project
-  maven_test:
-
+  # This workflow contains a single job called "greet"
+  greet:
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    permissions:
-      contents: read
-
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+<<<<<<< HEAD
 
     # The uses: keyword invokes a GitHub action:
     # https://github.com/marketplace/actions/checkout
@@ -157,3 +166,8 @@ jobs:
     - name: Update dependency graph
       uses: advanced-security/maven-dependency-submission-action@v3
 >>>>>>> parent of ef63632 (Rename main.yml to maven-ci.yml)
+=======
+    # Runs a single command using the runners shell
+    - name: Send greeting
+      run: echo "Hello ${{ github.event.inputs.name }}"
+>>>>>>> parent of 99853f1 (Update main.yml)
